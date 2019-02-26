@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    {% if posts %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Blog Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td>
+                            <a href="/symfexample/public/index.php/blog/{{ post.id }}" class="btn btn-dark">Show</a>
+                            <a href="/symfexample/public/index.php/blog/{{ post.id }}" class="btn btn-light">Edit</a>
+                            <a href="#" class="btn btn-danger delete-post" data-id="{{ post.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}
